@@ -1,12 +1,9 @@
-import React from 'react'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SignIn() {
-  return (
-    <div>
-      Signin
-    </div>
-  )
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  return <div></div>;
 }
-
-
-
