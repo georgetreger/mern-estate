@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bcrypt from 'bcryptjs'
 import dotenv from 'dotenv'
-import User from "./models/user.js";
+import userRouter from "./routes/user.route.js";
 
 const app = express();
 
@@ -13,10 +13,13 @@ mongoose.connect(process.env.MONGO).then(()=>{
    console.log("connected to mongodb");
    
 }).catch(()=>{
-  console.log("mongodb fail");
+  console.log("mongodb fails");
 })
 
+// get
+app.use("/api/user", userRouter)
 
+// post
 
 app.listen(4000, () => {
   console.log("Server is running on port 4000!!");
