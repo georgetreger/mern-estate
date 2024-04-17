@@ -8,7 +8,14 @@ import authRouter from './routes/auth.route.js'
 
 const app = express();
 app.use(express.json())
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:5173",
+  })
+);
 dotenv.config()
+
 
 mongoose.connect(process.env.MONGO).then(()=>{
    console.log("connected to mongodb");
@@ -30,8 +37,8 @@ app.use((err, req, res, next)=>{
     message,
   })
 }) 
-app.listen(4000, () => {
-  console.log("Server is running on port 4000!");
+app.listen(3000, () => {
+  console.log("Server is running on port 3000!");
 });
 
 
