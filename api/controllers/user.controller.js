@@ -1,3 +1,4 @@
-export const test =(req, res)=>{
-    res.send("API IS WORKING PERFECTLY GOOD");
+
+export const test = (req, res)=>{
+  res.send("hello world")
 }
