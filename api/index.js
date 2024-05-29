@@ -17,7 +17,7 @@ const app = express()
     const statusCode = err.statusCode || 500;
     const message = err.message || 'Internal Server Error'
      return res.status(statusCode).json({
-        sussess: false,
+        success: false,
         statusCode,
         message
      })
