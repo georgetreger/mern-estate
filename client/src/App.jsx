@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import PrivateRoute from "./components/PrivateRoute";
 
 
 
@@ -19,9 +20,11 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/sign-in" element={<SignIn />} />
-             <Route path="/sign-up" element={<SignUp/>}/>
+            <Route path="/sign-up" element={<SignUp />} />
             <Route path="/about" element={<About />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/profile" element={<Profile />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
