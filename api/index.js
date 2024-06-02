@@ -3,12 +3,15 @@ import dotenv from 'dotenv'
 import mongoose, { connect } from 'mongoose';
 import userRoute from './routes/user.route.js'
 import authRoute from './routes/auth.route.js'
+import cookieParser from 'cookie-parser';
 import cors from 'cors'
+
 const app = express()
 
  dotenv.config()
 //   middlewares 
    app.use(express.json())
+   app.use(cookieParser())
     app.use(cors())
    app.use('/api/user', userRoute);
    app.use("/api/auth", authRoute)
