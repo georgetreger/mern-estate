@@ -15,6 +15,9 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
+  signOutUserStart,
+  signOutUserFailure,
+  signOutUserSuccess,
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 export default function Profile() {
@@ -98,6 +101,21 @@ export default function Profile() {
       dispatch(deleteUserFailure(error.message))
     }
    }
+
+   const handleSignOut = async()=>{
+    try {
+      dispatch(signOutUserStart())
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json()
+      if (data.success=== false){
+        dispatch(signOutUserFailure(data.message))
+        return;
+      }
+      dispatch(signOutUserSuccess(data))
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message))
+    }
+   }
   return (
     <div className="p-4 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-6">Profile</h1>
@@ -111,7 +129,7 @@ export default function Profile() {
         />
         <img
           onClick={() => fileRef.current.click()}
-          className="rounded-full h-24 w24 object-cover cursor-pointer self-center mt-2"
+          className="rounded-full h-20 w20 object-cover cursor-pointer self-center mt-2"
           src={formData.avatar || currentUser.avatar}
           alt="profile"
         />
@@ -157,7 +175,7 @@ export default function Profile() {
       </form>
       <div className="flex justify-between mt-4">
         <span onClick={handelDeleteUser} className="text-red-700 cursor-pointer">Delete Account</span>
-        <span className="text-red-700">Sign Out</span>
+        <span onClick={handleSignOut} className="text-red-700 cursor-pointer">Sign Out</span>
       </div>
        <p className="text-red-700 mt-5">{error? error: ''}</p>
        <p className="text-green-700">{updateSuccess? 'User is updated Successfully': ''}</p>
