@@ -11,7 +11,7 @@ export default function ListingItem({ listing }) {
             "https://img.indiafilings.com/learn/wp-content/uploads/2015/10/12011006/Real-Estate-Agent-Business-India.jpg"
           }
           alt="listing"
-          className="h-[320px] sm:-[220px] w-full object-cover hover:scale-105 transition-scale duration-300"
+          className="h-[200px] sm:-[220px] w-full object-cover hover:scale-105 transition-scale duration-300"
         />
         <div className="p-3 flex flex-col gap-2 w-full">
           <p
@@ -33,7 +33,7 @@ export default function ListingItem({ listing }) {
           <p className="text-slate-600 mt-2 font-semibold">
             $
             {listing.offer
-              ? listing.discou8ntPrice.toLocaleString("en-US")
+              ? listing.discountPrice.toLocaleString("en-US")
               : listing.regularPrice.toLocaleString("en-US")}
             {listing.type === "rent" && "/month"}
           </p>
