@@ -11,7 +11,7 @@ export default function Home() {
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
   SwiperCore.use([Navigation]);
-  console.log(offerListings);
+ 
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
@@ -130,7 +130,7 @@ export default function Home() {
           </div>
         )}
         {saleListings && saleListings.length > 0 && (
-          <div className="">
+          <div className="p-3">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
                 Recent places for sale
