@@ -49,7 +49,7 @@ export default function Home() {
     fetchOfferListing();
   }, []);
   return (
-    <div>
+    <div className="p-3 ">
       <div className="flex flex-col gap-5 p-28 px-5 max-w-6xl mx-auto">
         <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
           we help you, find your
