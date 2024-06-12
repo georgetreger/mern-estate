@@ -1,12 +1,11 @@
 {
-  "name": "api",
+  "name": "react-e-commerce",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon api/index.js",
-    "start": "node api/index.js",
-    "build": "npm install && npm install --prefix client && npm run build --prefix client"
+    "dev": "nodemon api/index.js"
   },
   "keywords": [],
   "author": "",
@@ -18,9 +17,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.5.0",
-    "mongoose": "^8.2.4",
-    "nodemon": "^3.1.0"
-  },
-  "description": ""
+    "mongoose": "^8.4.1",
+    "nodemon": "^3.1.3"
+  }
 }
